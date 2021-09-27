@@ -11,19 +11,15 @@ class Inventory():
         split = str(path).split(sep="/")
 
         if ".csv" in split[-1]:
-             lista = CsvImporter.import_data(path)
+          lista = CsvImporter.import_data(path)
         elif ".json" in split[-1]:
-             lista = JsonImporter.import_data(path)
+          lista = JsonImporter.import_data(path)
         elif ".xml" in split[-1]:
-             lista = XmlImporter.import_data(path)
+          lista = XmlImporter.import_data(path)
 
         if tipo == "simples":
-
-
-            simple = SimpleReport.generate(lista_de_dicts=lista)
-            return(simple)
-
-        elif tipo == "completo":
-
-            complete = CompleteReport.generate(lista_de_dicts=lista)
-            return(complete)
+          simple = SimpleReport.generate(lista_de_dicts=lista)
+          return(simple)
+        else:
+          complete = CompleteReport.generate(lista_de_dicts=lista)
+          return(complete)
